@@ -1,0 +1,7 @@
+Demo_Project_FastAPI/
+├── app/
+├── venv/              ← renamed
+├── tests/             ← create this
+├── .gitignore
+├── requirements.txt   ← move it here
+└── README.md          ← create this stub
