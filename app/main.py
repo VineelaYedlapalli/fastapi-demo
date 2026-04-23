@@ -1,11 +1,14 @@
 from fastapi import FastAPI
+from app.routers import items
 
 app = FastAPI(
     title="FastAPI Demo",
-    description="Built following tutorial — Sprint Week 1",
-    version="0.1.0",
+    description="Built following tutorial - Sprint week 1",
+    version="0.2.0",
 )
 
-@app.get("/", tags=["Health"])
+app.include_router(items.router)
+
+@app.get("/",tags=["Health"])
 def root():
-    return {"status": "ok", "message": "FastAPI is live"}
+    return {"status":"ok","message":"FastAPI is live"}
