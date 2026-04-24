@@ -1,5 +1,5 @@
-from fastapi import APIRouter, HTTPException ,Response
-from app.Models import Item
+from fastapi import APIRouter, HTTPException, Response
+from app.models import Item
 from typing import List
 
 router = APIRouter(
@@ -32,26 +32,21 @@ def create_item(item: Item):
     items_db.append(item)
     return item
 
-@router.put("/{item_id}",response_model=Item)
-def update_item(item_id:int, updated_item :Item):
+
+@router.put("/{item_id}", response_model=Item)
+def update_item(item_id: int, updated_item: Item):
     for index, item in enumerate(items_db):
         if item.id == item_id:
             updated_item.id = item_id
             items_db[index] = updated_item
             return updated_item
-    raise HTTPException(
-        status_code= 404,
-        detail= f"Item with id {item_id} not found"
-    )
+    raise HTTPException(status_code=404, detail=f"Item with id {item_id} not found")
 
 
-@router.delete("/{item_id}",status_code=204)
-def delete_item(item_id:int):
+@router.delete("/{item_id}", status_code=204)
+def delete_item(item_id: int):
     for index, item in enumerate(items_db):
         if item.id == item_id:
             items_db.pop(index)
             return Response(status_code=204)
-    raise HTTPException(
-        status_code=404,
-        detail=f"Item with id {item_id} not found"
-    )
+    raise HTTPException(status_code=404, detail=f"Item with id {item_id} not found")
