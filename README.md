@@ -19,3 +19,10 @@ uvicorn app.main:app --reload
 ## Docs
 
 Visit `http://127.0.0.1:8000/docs` for the interactive Swagger UI.
+
+# FastAPI Demo Project
+
+![CI Pipeline](https://github.com/VineelaYedlapalli/fastapi-demo/actions/workflows/ci.yml/badge.svg)
+
+A production-ready REST API built with FastAPI.
+...
