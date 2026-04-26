@@ -93,7 +93,7 @@ def test_update_item_not_found():
     """PUT on a missing id must return 404."""
     response = client.put(
         "/items/99999",
-        json={"name": "Ghost", "price": 0.0}
+        json={"name": "Ghost", "price": 1.0}  # ← valid price, passes validation
     )
     assert response.status_code == 404
 
